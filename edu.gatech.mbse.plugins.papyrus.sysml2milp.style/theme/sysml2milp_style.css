@@ -1,0 +1,60 @@
+/* Properties / attributes. */
+Property {
+	maskLabel: name type multiplicity defaultValue visibility derived;
+	displayTag: true;		/* Has no effect -> only applies to Shapes, Connectors and Property not a subtype? */
+}
+
+/* Automatically sync shapes with model. */
+Shape {
+    canonical: true;
+}
+
+/* Style of resource shape. */
+[appliedStereotypes~="Resource"] {
+	fillColor: #3399FF;
+	gradient: #CCFFFF vertical;
+}
+
+/* Style of working principle shapes. */
+[appliedStereotypes~="WorkingPrinciple"] {
+	fillColor: #FF9933;
+	gradient: white vertical;
+}
+
+/*
+ * Pattern for properties: all properties stereotyped with something from the profile
+ * are bold to draw attention to them. Required ones are red ("careful - need to fill out"),
+ * objective is green ("this is where we want to go") and process duration is grey ("can
+ * ignore safely, is read only").
+ */
+
+/* Objective is simply displayed in green and bold. */
+Constraint[appliedStereotypes~="Objective"] {
+	fontColor: #006600;
+	bold: true;
+}
+
+/* Required properties are simply bold. */
+/*Class[isAbstract=false] > */Property[appliedStereotypes~="required"] {		/* Would be nice if this were to work! */
+	fontColor: #B20000;
+	bold: true;
+}
+
+/* Special property. */
+Property[appliedStereotypes~="processDuration"] {		/* Process duration is total time spent by machines working on work piece. */
+	bold: true;
+	fontColor: grey;		/* "Read only" */
+}
+
+/* Special property. */
+Property[appliedStereotypes~="throughput"] {			/* 1 / throughput is the number of seconds before another part enters the cell. */
+	bold: true;
+	fontColor: grey;		/* "Read only" */
+}
+
+/* Show stereotypes applied to properties - DOES NOT WORK! Broken in Mars? */
+/*
+Property > Label[type=StereotypeLabel] {
+	visible: true;
+}
+*/

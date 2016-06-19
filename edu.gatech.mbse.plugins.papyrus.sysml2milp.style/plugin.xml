@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.gmfdiag.css.theme">
+      <!-- Plugin "contributes" (i.e., extends) the default Papyrus theme -->
+      <themeContribution
+            id="org.eclipse.papyrus.css.papyrus_theme">
+         <stylesheet
+               stylesheetPath="theme/sysml2milp_style.css">
+         </stylesheet>
+      </themeContribution>
+   </extension>
+</plugin>

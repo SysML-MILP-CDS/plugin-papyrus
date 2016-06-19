@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <!-- SysML2MILP transformation model explorer menu -->
+   <!--
+   <extension
+         point="org.eclipse.papyrus.infra.newchild">
+      <menuCreationModel
+            model="resources/SysML2MILP.creationmenumodel">
+      </menuCreationModel>
+   </extension>
+   -->
+
+   <!-- Declarative definition of commands -->
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="SysML2MILP Transformation"
+            id="org.eclipse.papyrus.transformations.sysml2milp.commands.category.transformations">
+      </category>
+      <command
+            name="SysML to MILP"
+            categoryId="org.eclipse.papyrus.transformations.sysml2milp.commands.category.transformations"
+            id="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.single">
+      </command>
+      <command
+            name="MILP Solution to SysML"
+            categoryId="org.eclipse.papyrus.transformations.sysml2milp.commands.category.transformations"
+            id="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.back.single">
+      </command>
+      <command
+            name="Transform and Execute"
+            categoryId="org.eclipse.papyrus.transformations.sysml2milp.commands.category.transformations"
+            id="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.exe.single">
+      </command>
+   </extension>
+   
+   <!-- Handler for commands -->
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.single"
+            class="edu.gatech.mbse.plugins.papyrus.sysml2milp.handlers.TransformationPluginHandler">
+      </handler>
+      <handler
+            commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.back.single"
+            class="edu.gatech.mbse.plugins.papyrus.sysml2milp.handlers.BackTransformationHandler">
+      </handler>
+      <handler
+            commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.exe.single"
+            class="edu.gatech.mbse.plugins.papyrus.sysml2milp.handlers.TransformAndExecuteHandler">
+      </handler>
+   </extension>
+   
+   <!-- Menus extensions -->
+   <extension
+         point="org.eclipse.ui.menus">
+      
+      <!-- Main menu entry -->
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Transformations"
+               id="org.eclipse.papyrus.transformations.sysml2milp.menus.transformationMenu">
+            <command
+                  commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.single"
+                  mnemonic="S"
+                  id="org.eclipse.papyrus.transformations.sysml2milp.menus.transformations.sysml2milp.single">
+            </command>
+            <command
+                  commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.back.single"
+                  mnemonic="B"
+                  id="org.eclipse.papyrus.transformations.sysml2milp.menus.transformations.sysml2milp.back.single">
+            </command>
+            <command
+                  commandId="org.eclipse.papyrus.transformations.sysml2milp.commands.transformations.sysml2milp.exe.single"
+                  mnemonic="E"
+                  id="org.eclipse.papyrus.transformations.sysml2milp.menus.transformations.sysml2milp.exe.single">
+            </command>
+         </menu>
+      </menuContribution>
+      
+   </extension>
+
+</plugin>
